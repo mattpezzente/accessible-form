@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto|Merriweather');
+
 @import partials/_reset
 
 @import modules/_all
@@ -6,56 +8,64 @@
 
 @import partials/_product
 
-$base-content-font: 1rem
-
-body
-
-.flex-box
-	@extend %flex-box
-
-.lbl-error
-	display: block
-	background: #be0004
-	padding: 0.5rem
-	color: #eee
-	font-size: $base-content-font - 0.25rem
-
-.required:before
-	display: block
-	content: "*"
-	float: left
-
-
 .product
-	@extend %flex-box
+	@extend %flex-box, %center-object
+	max-width: $max-width
 
 	>fieldset
+		position: relative
 		@extend %flex-box
 		padding: 1rem
-		padding-top: 2rem
-		width: calc(100%/3)
+		padding-top: 3rem
+		@include responsive(tablet)
+			padding-top: 4rem
 
-legend
-	position: relative
-	top: 1rem
+	>fieldset:nth-child(1)
+		width: 100%
+		@include responsive(tablet)
+			width: calc(100%/2)
+		@include responsive(desktop)
+			width: calc(100%/3)
+
+	>fieldset:nth-child(2)
+		width: 100%
+		@include responsive(tablet)
+			width: calc(100%/2)
+		@include responsive(desktop)
+			width: calc(100%/3)
+
+	>fieldset:nth-child(3)
+		width: 100%
+		@include responsive(desktop)
+			width: calc(100%/3)
+
+
+
 
 .product-selection
+	@extend %center-object
 	background: #fff
+	max-width: 25rem
+	margin-bottom: 0.5rem
 
 	img
 		@extend %center-object
 		display: block
-		border: 0.05rem solid black
-		width: 50%
-		max-height: 20rem
+		width: 100%
+		height: 100%
+		max-height: 30rem
+		max-width: 15rem
 
 	h3
-		width: 100%
 		display: block
 		margin: 1rem 0
+		width: 100%
 		text-align: right
 
 .radios
+	margin-top: 0.5rem
+	margin-bottom: 0.5rem
+	width: 100%
 	
 	label
 		margin: 0.5rem 0
@@ -91,6 +101,7 @@ legend
 
 
 
+
 .product-user-info
 	background: #eee;
 
@@ -106,43 +117,80 @@ legend
 			width: 100%
 
 		select
+			background: #fff
 			margin-top: 0.25rem
+			padding: 0.5rem
 			width: 100%
+			color: #000
 
-	label:nth-child(n+3):nth-child(-n+4)
-		width: calc(100%/2 - 1rem)
-
-	label:nth-child(n+5):nth-child(-n+7)
-		width: calc(100%/3 - 0.5rem)
-	
-
-
-.product-summary
+.product-summary,
 	position: relative
 	background: #ddd; 
 
-	fieldset
+	.seperator
 		width: 100%
 		padding: 0.5rem 0
 		border-bottom: 0.05rem solid black
 
+	li
+		margin: 0.5rem 0
+
+		>h3
+			font-weight: bold
+			margin-bottom: 0.5rem
+
 	.flex-box
 		justify-content: space-between
-
-		>p
-			margin: 0.5rem 0
-
-	fieldset:nth-child(3)
-		border-bottom: none
 	
-	button 
-		position: absolute
-		margin-left: auto
-		margin-right: auto
-		left: 0
-		right: 0
-		bottom: 1rem
-		width: calc(100% - 2rem)
+button
+	margin-top: 2rem
+	padding: 0.75rem 0
+	background: #1dc103
+	width: 100%
+	color: #fff
+	border: none
+	cursor: pointer
+
+.overlay 
+  position: fixed
+  display: none
+  width: 100%
+  height: 100%
+  top: 0 
+  left: 0
+  right: 0
+  bottom: 0
+  background-color: rgba(0,0,0,0.5)
+  z-index: 2
+
+.overlay-content
+	@extend %center-object
+	display: block
+	background:#eee
+	padding: 2rem
+	width: 30%
+
+	img
+		@extend %center-object
+		display: block
+		margin-bottom: 1rem
+		width: 5rem
+		height: 5rem
+
+	.seperator
+		width: 100%
+		padding: 0.5rem 0
+		border-bottom: 0.05rem solid black
+
+	li
+		margin: 0.5rem 0
+
+		>h3
+			font-weight: bold
+			margin-bottom: 0.5rem
+
+	.flex-box
+		justify-content: space-between
 
 
 

@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto|Merriweather");
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
   margin: 0;
   padding: 0;
@@ -34,7 +35,69 @@ table {
   -webkit-box-sizing: border-box;
           box-sizing: border-box; }
 
-.product-selection img {
+body {
+  padding: 0 0.5rem; }
+
+h1, h2, h3, h4, legend {
+  font-family: "Roboto", sans-serif; }
+
+select, input, p, label, li {
+  font-family: "Roboto", sans-serif; }
+
+select {
+  font-size: 1rem; }
+
+label, input, p {
+  font-size: 1.25rem; }
+
+li {
+  font-size: 1rem; }
+  @media (min-width: 625px) {
+    li {
+      font-size: 1.25rem; } }
+
+legend {
+  font-size: 1.5rem; }
+  @media (min-width: 625px) {
+    legend {
+      font-size: 1.75rem; } }
+
+h3 {
+  font-size: 1.25rem; }
+  @media (min-width: 625px) {
+    h3 {
+      font-size: 1.5rem; } }
+
+h4, button {
+  font-size: 1.125rem; }
+  @media (min-width: 625px) {
+    h4, button {
+      font-size: 1.25rem; } }
+
+p {
+  line-height: 1.15; }
+
+legend {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 1rem;
+  font-weight: bold;
+  text-align: center; }
+
+.lbl-error {
+  display: block;
+  background: #be0004;
+  padding: 0.5rem;
+  color: #eee;
+  font-size: 0.875rem; }
+
+.required:before {
+  display: block;
+  content: "*";
+  float: left; }
+
+.product, .product-selection, .product-selection img, .overlay-content, .overlay-content img {
   margin-left: auto;
   margin-right: auto; }
 
@@ -52,47 +115,63 @@ table {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap; }
 
-.lbl-error {
-  display: block;
-  background: #be0004;
-  padding: 0.5rem;
-  color: #eee;
-  font-size: 0.75rem; }
-
-.required:before {
-  display: block;
-  content: "*";
-  float: left; }
-
-.product > fieldset {
-  padding: 1rem;
-  padding-top: 2rem;
-  width: calc(100%/3); }
-
-legend {
-  position: relative;
-  top: 1rem; }
+.product {
+  max-width: 1000px; }
+  .product > fieldset {
+    position: relative;
+    padding: 1rem;
+    padding-top: 3rem; }
+    @media (min-width: 625px) {
+      .product > fieldset {
+        padding-top: 4rem; } }
+  .product > fieldset:nth-child(1) {
+    width: 100%; }
+    @media (min-width: 625px) {
+      .product > fieldset:nth-child(1) {
+        width: calc(100%/2); } }
+    @media (min-width: 1000px) {
+      .product > fieldset:nth-child(1) {
+        width: calc(100%/3); } }
+  .product > fieldset:nth-child(2) {
+    width: 100%; }
+    @media (min-width: 625px) {
+      .product > fieldset:nth-child(2) {
+        width: calc(100%/2); } }
+    @media (min-width: 1000px) {
+      .product > fieldset:nth-child(2) {
+        width: calc(100%/3); } }
+  .product > fieldset:nth-child(3) {
+    width: 100%; }
+    @media (min-width: 1000px) {
+      .product > fieldset:nth-child(3) {
+        width: calc(100%/3); } }
 
 .product-selection {
-  background: #fff; }
+  background: #fff;
+  max-width: 25rem;
+  margin-bottom: 0.5rem; }
   .product-selection img {
     display: block;
-    border: 0.05rem solid black;
-    width: 50%;
-    max-height: 20rem; }
-  .product-selection h3 {
     width: 100%;
+    height: 100%;
+    max-height: 30rem;
+    max-width: 15rem; }
+  .product-selection h3 {
     display: block;
     margin: 1rem 0;
+    width: 100%;
     text-align: right; }
 
-.radios label {
-  margin: 0.5rem 0;
-  text-align: center;
-  cursor: pointer; }
-
-.radios input {
-  display: none; }
+.radios {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  width: 100%; }
+  .radios label {
+    margin: 0.5rem 0;
+    text-align: center;
+    cursor: pointer; }
+  .radios input {
+    display: none; }
 
 .lbl-size {
   background: #ddd;
@@ -127,35 +206,70 @@ legend {
     margin-top: 0.25rem;
     width: 100%; }
   .container-user-info label select {
+    background: #fff;
     margin-top: 0.25rem;
-    width: 100%; }
-
-.container-user-info label:nth-child(n+3):nth-child(-n+4) {
-  width: calc(100%/2 - 1rem); }
-
-.container-user-info label:nth-child(n+5):nth-child(-n+7) {
-  width: calc(100%/3 - 0.5rem); }
+    padding: 0.5rem;
+    width: 100%;
+    color: #000; }
 
 .product-summary {
   position: relative;
   background: #ddd; }
-  .product-summary fieldset {
+  .product-summary .seperator {
     width: 100%;
     padding: 0.5rem 0;
     border-bottom: 0.05rem solid black; }
+  .product-summary li {
+    margin: 0.5rem 0; }
+    .product-summary li > h3 {
+      font-weight: bold;
+      margin-bottom: 0.5rem; }
   .product-summary .flex-box {
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between; }
-    .product-summary .flex-box > p {
-      margin: 0.5rem 0; }
-  .product-summary fieldset:nth-child(3) {
-    border-bottom: none; }
-  .product-summary button {
-    position: absolute;
-    margin-left: auto;
-    margin-right: auto;
-    left: 0;
-    right: 0;
-    bottom: 1rem;
-    width: calc(100% - 2rem); }
+
+button {
+  margin-top: 2rem;
+  padding: 0.75rem 0;
+  background: #1dc103;
+  width: 100%;
+  color: #fff;
+  border: none;
+  cursor: pointer; }
+
+.overlay {
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2; }
+
+.overlay-content {
+  display: block;
+  background: #eee;
+  padding: 2rem;
+  width: 30%; }
+  .overlay-content img {
+    display: block;
+    margin-bottom: 1rem;
+    width: 5rem;
+    height: 5rem; }
+  .overlay-content .seperator {
+    width: 100%;
+    padding: 0.5rem 0;
+    border-bottom: 0.05rem solid black; }
+  .overlay-content li {
+    margin: 0.5rem 0; }
+    .overlay-content li > h3 {
+      font-weight: bold;
+      margin-bottom: 0.5rem; }
+  .overlay-content .flex-box {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between; }

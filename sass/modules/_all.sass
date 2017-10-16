@@ -1,0 +1,73 @@
+@mixin responsive($size)
+  @if $size == tablet
+    @media (min-width: 625px) 
+      @content
+  @else if $size == desktop
+    @media (min-width: 1000px) 
+      @content
+
+$max-width: 1000px
+$base-content-font: 1rem
+
+$font-family: 'Roboto', sans-serif;
+
+body
+	padding: 0 0.5rem
+
+h1,h2,h3,h4,legend
+	font-family: $font-family
+
+select, input, p, label, li
+	font-family: $font-family
+
+select
+	font-size: $base-content-font
+
+label, input, p
+	font-size: $base-content-font + 0.25rem
+
+li
+	font-size: $base-content-font
+	@include responsive(tablet)
+		font-size: $base-content-font + 0.25rem
+
+legend
+	font-size: $base-content-font + 0.5rem
+	@include responsive(tablet)
+		font-size: $base-content-font + 0.75rem
+
+h3
+	font-size: $base-content-font + 0.25rem
+	@include responsive(tablet)
+		font-size: $base-content-font + 0.5rem
+
+h4, button
+	font-size: $base-content-font + 0.125rem
+	@include responsive(tablet)
+		font-size: $base-content-font + 0.25rem
+
+p
+	line-height: 1.15
+
+legend
+	position: absolute
+	left: 0
+	right: 0
+	top: 1rem
+	font-weight: bold
+	text-align: center
+
+.flex-box
+	@extend %flex-box
+
+.lbl-error
+	display: block
+	background: #be0004
+	padding: 0.5rem
+	color: #eee
+	font-size: $base-content-font - 0.125rem
+
+.required:before
+	display: block
+	content: "*"
+	float: left

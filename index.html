@@ -3,36 +3,50 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="css/main.css">
-  
+  <script src="https://use.fontawesome.com/d4c407ce06.js"></script>
   <title>Accessible Form</title>
   
 </head>
 <body>
-<!-- <header id="header-nav">
-  <nav class="nav-main-mobile">
-    <a href="#"><h1>Pokemon Search</h1></a>
-    <button class="btn-hamburger"></button>
-    <ul class="links-wrapper-mobile">
-       <li><a href="#">Home</a></li>
-       <li><a href="#">About</a></li>
-       <li><a href="#">Contact</a></li>
-    </ul>
-  </nav>
-</header> -->
 <main>
+  <div class="overlay">
+    <div class="overlay-content">
+      <img alt="Confirmation Image" src="./img/circle-check.svg">
+      <ul class="seperator flex-box">
+          <li>Programming Shirt</li>
+          <li class="checkout-price-item">$20.00</li>
+        </ul>
+        <ul class="flex-box">
+          <li>Shipping</li>
+          <li class="checkout-price-shipping">Free</li>
+        </ul>
+        <ul class="seperator flex-box">
+          <li>Total</li>
+          <li class="checkout-price-total">$20.00</li>
+        </ul>
+        <ul>
+          <li><h3>Shipping Address:</h3></li>
+          <li class="checkout-fname"></li>
+          <li class="checkout-faddress"></li>
+          <li><span class="checkout-fcity"></span> <span class="checkout-fstate"></span> <span class="checkout-fzip"></span></li>
+          <li><span class="checkout-fcountry"></span></li>
+        </ul>
+        <button class="overlay-button">Confirm</button>
+    </div>
+  </div>
   <form class="product">
 
     <fieldset class="product-selection">
-      <legend>Product Name</legend>
+      <legend>Programming Shirt</legend>
       <div class="flex-box">
-        <img src="./img/desktop-success.jpg">
-        <h3>Price: $20.00</h3>
+        <img alt="Programmer's Shirt Product" src="./img/programming-shirt.jpg">
+        <h3>Price: <span class="price-item">$20.00</span></h3>
         <fieldset class="radios">
           <h4>Select a Size</h4>
           <div class="flex-box">
-            <label class="lbl-size">Small<input type="radio" name="size" checked></label>
-            <label class="lbl-size">Medium<input type="radio" name="size"></label>
-            <label class="lbl-size">Large<input type="radio" name="size"></label>
+            <label class="lbl-size sm">Small<input type="radio" name="size" checked></label>
+            <label class="lbl-size md">Medium<input type="radio" name="size"></label>
+            <label class="lbl-size lg">Large<input type="radio" name="size"></label>
           </div>
         </fieldset>
         <fieldset class="radios">
@@ -53,13 +67,12 @@
         <label>Full Name<input type="text" name="fullname" required></label>
         <label>Email<input type="email" name="email" required></label>    
         <label>Address<input type="text" name="address" required></label>
-        <label>Address 2<input type="text" name="address"></label>
         <label>City<input type="text" name="city" required></label>
         <label>State<input type="text" name="state" required></label>
         <label>Zip<input type="text" name="zip" required></label>
         <label>Country
-          <select>
-            <option value="0" label="Select a country … " selected="selected">Select a country …       </option>
+          <select required>
+            <option value="0" label="Select a country … " selected="selected"></option>
             <optgroup id="country-optgroup-Africa" label="Africa">
             <option value="DZ" label="Algeria">Algeria</option>
             <option value="AO" label="Angola">Angola</option>
@@ -330,38 +343,32 @@
 
     <fieldset class="product-summary">
       <legend>Order Summary</legend>
-      <div class="flex-box">
-        <fieldset>
-          <div class="flex-box">
-            <p>Product Name</p>
-            <p>$20.00</p>
-          </div>
-        </fieldset>
-        <fieldset>
-          <div class="flex-box">
-            <p>Shipping</p>
-            <p>Free</p>
-          </div>
-          <div class="flex-box">
-            <p>Total</p>
-            <p>$20.00</p>
-          </div>
-        </fieldset>
-        <fieldset>
-          <h3>Shipping Address</h3>
-          <p>Sarah Smith</p>
-          <p>23412 S University Ave</p>
-          <p>Winter Park, FL 32792</p>
-        </fieldset>
-        <button>Complete Order</button>
-      </div>
+        <ul class="seperator flex-box">
+          <li>Programming Shirt</li>
+          <li class="price-item">$20.00</li>
+        </ul>
+        <ul class="flex-box">
+          <li>Shipping</li>
+          <li class="price-shipping">Free</li>
+        </ul>
+        <ul class="seperator flex-box">
+          <li>Total</li>
+          <li class="price-total">$20.00</li>
+        </ul>
+        <ul>
+          <li><h3>Shipping Address:</h3></li>
+          <li class="fname"></li>
+          <li class="faddress"></li>
+          <li><span class="fcity"></span> <span class="fstate"></span> <span class="fzip"></span></li>
+          <li><span class="fcountry"></span></li>
+        </ul>
+        <button class="submit-button">Complete Order</button>
     </fieldset>
 
   </form>
 </main>
-<!-- <footer>
-  <h3>Built by Matthew Pezzente for DWS2</h3>
-</footer> -->
+<footer>
+</footer>
 <script type="text/javascript" src="js/main.js"></script>
 </body>
 </html>
