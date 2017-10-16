@@ -35,6 +35,24 @@ table {
   -webkit-box-sizing: border-box;
           box-sizing: border-box; }
 
+.product, .product-selection, .product-selection img, .overlay-content, .overlay-content img {
+  margin-left: auto;
+  margin-right: auto; }
+
+.flex-box, .product, .product > fieldset, .container-user-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap; }
+
 body {
   padding: 0 0.5rem; }
 
@@ -85,6 +103,17 @@ legend {
   font-weight: bold;
   text-align: center; }
 
+button {
+  margin-top: 2rem;
+  padding: 0.75rem 0;
+  background: #1dc103;
+  width: 100%;
+  color: #fff;
+  border: none;
+  cursor: pointer; }
+  button:hover {
+    opacity: 0.5; }
+
 .lbl-error {
   display: block;
   background: #be0004;
@@ -96,24 +125,6 @@ legend {
   display: block;
   content: "*";
   float: left; }
-
-.product, .product-selection, .product-selection img, .overlay-content, .overlay-content img {
-  margin-left: auto;
-  margin-right: auto; }
-
-.flex-box, .product, .product > fieldset, .container-user-info {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap; }
 
 .product {
   max-width: 1000px; }
@@ -229,15 +240,6 @@ legend {
         -ms-flex-pack: justify;
             justify-content: space-between; }
 
-button {
-  margin-top: 2rem;
-  padding: 0.75rem 0;
-  background: #1dc103;
-  width: 100%;
-  color: #fff;
-  border: none;
-  cursor: pointer; }
-
 .overlay {
   position: fixed;
   display: none;
@@ -273,3 +275,9 @@ button {
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between; }
+
+.overlay-close {
+  background: #e2000c; }
+
+.overlay-button {
+  margin-top: 0.25rem; }

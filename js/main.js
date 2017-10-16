@@ -8,10 +8,10 @@ function buildForm() {
 		const country = document.querySelector('select')
 		const sizes = document.querySelectorAll('.lbl-size input')
 		const colors = document.querySelectorAll('.lbl-color input')
-		const pItem = document.querySelectorAll('.price-item')
+		const pItem = document.querySelectorAll('.checkout-price-item')
 		priceTotal = 0
 		priceItem = 0
-
+		
 		formInputs.forEach(input => {
 			if (input.getAttribute('name') == 'fullname') {
 				document.querySelector('.checkout-fname').innerHTML = input.value
@@ -32,7 +32,7 @@ function buildForm() {
 		if (country.value != 0) {
 			document.querySelector('.checkout-fcountry').innerHTML = country.value
 		}
-//////////
+
 		sizes.forEach(size => {
 			if (size.checked) {
 				if (size.parentElement.classList.contains('sm')) {
@@ -50,7 +50,7 @@ function buildForm() {
 		colors.forEach(color => {
 			if (color.checked) {
 				if (color.parentElement.classList.contains('red')) {
-					priceItem += 1.5
+					priceItem += 1.50
 				}
 				if (color.parentElement.classList.contains('green')) {
 					priceItem += 2.00
@@ -65,7 +65,7 @@ function buildForm() {
 		})
 
 		pItem.forEach(p => {
-			p.innerHTML = `$${priceItem}`
+			p.innerHTML = `$${priceItem.toFixed(2)}`
 		})
 
 		if (country.value != "US" && country.selectedIndex > 0) {
@@ -77,8 +77,7 @@ function buildForm() {
 			priceShipping = 0.00
 		}
 		priceTotal += priceItem
-		document.querySelector('.checkout-price-total').innerHTML = `$${priceTotal}`
-//////////
+		document.querySelector('.checkout-price-total').innerHTML = `$${priceTotal.toFixed(2)}`
 		overlay.style.display = 'block'
 	}
 	else {
@@ -152,7 +151,7 @@ function updatePrice() {
 	})
 
 	pItem.forEach(p => {
-		p.innerHTML = `$${priceItem}`
+		p.innerHTML = `$${priceItem.toFixed(2)}`
 	})
 
 	if (country.value != "US" && country.selectedIndex > 0) {
@@ -164,7 +163,7 @@ function updatePrice() {
 		priceShipping = 0.00
 	}
 	priceTotal += priceItem
-	document.querySelector('.price-total').innerHTML = `$${priceTotal}`
+	document.querySelector('.price-total').innerHTML = `$${priceTotal.toFixed(2)}`
 }
 
 class ValidateOptions {
@@ -271,7 +270,7 @@ class ValidateForm {
 	const userSelect = productUserInput.querySelector('select')
 	const required = document.querySelectorAll('input[required], select[required]')
 	const submitButton = document.querySelector('.submit-button')
-	const overlay = document.querySelector('.overlay')
+	const overlayClose = document.querySelector('.overlay-close')
 	const overlayButton = document.querySelector('.overlay-button')
 	let vOpt = new ValidateOptions()
 	let vForm = new ValidateForm()
@@ -313,12 +312,13 @@ class ValidateForm {
 		req.parentElement.classList.add('required')
 	})
 
+	overlayClose.addEventListener('click', buildForm)
 	overlayButton.addEventListener('click', buildForm)
 
 	submitButton.addEventListener('click', e => {
 		e.preventDefault()
 		if (!vForm.check()) {
-
+			
 		}
 		else {
 			buildForm()
